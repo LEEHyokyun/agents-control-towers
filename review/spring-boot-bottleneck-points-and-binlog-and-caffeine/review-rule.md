@@ -1,6 +1,6 @@
 # Code Review History
 
-> 커밋 이후 Codex Agent가 변경사항과 프로젝트의 설계 원칙을 비교하여 기록하는 리뷰 문서입니다.
+> 커밋 이후 Codex Agent가 변경사항과[post-push](../../../spring-boot-bottleneck-points-and-binlog-and-caffeine/.git/hooks/post-push) 프로젝트의 설계 원칙을 비교하여 기록하는 리뷰 문서입니다.
 > 
 > 상세한 코드 수정안이나 전체 코드 리뷰를 작성하지 않고, **설계적으로 잘 지켜진 부분과 추가 확인이 필요한 부분을 요약**합니다.
 
