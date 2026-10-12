@@ -1,0 +1,36 @@
+1. 역할명세
+start-agent.bat	Windows에서 에이전트 관리 프로그램 실행(*모델 실행부터 대화 스레드(세션) 관리..Thread 개념)
+   ㄴ 초기 설계 기준 : 공통 설계 사상
+   ㄴ 프로젝트별 스레드 : 각 프로젝트별 리뷰 이력
+       ㄴ 프로젝트별 대화 스레드는 저장된 스레드ID를 우선적으로 재개, 복구할 수 없을 경우에 재초기화
+agent-manager.mjs	Codex App Server의 시작·연결·상태·요청 관리(통신/프로토콜..Process 개념)
+
+- 실행 순서	| Codex App Server 시작 → 스레드 확보 → 레퍼런스 동기화 → 초기화 완료 기록
+- needsFullSync	| 새 스레드 생성 여부를 확인
+- 중복 로직	| 레퍼런스 동기화 처리를 synchronizeReferences()로 통합
+- 상태 파일	| 기존 agent-status/agent-status.json 유지
+- 해시 형식	| 기존 문자열 해시와 객체 형식을 모두 읽을 수 있도록 처리
+- 동기화 상태	| Codex의 turn이 정상 완료된 뒤에만 해시와 동기화 상태 갱신
+- 초기화 실패	| initialized: false와 오류 내용을 상태 파일에 기록
+- 스레드 재사용	| 기존 스레드 재개 실패 시 새 스레드를 생성하고 전체 레퍼런스 전달
+
+package.json	Node.js 프로젝트 설정
+
+2. post commit 흐름 명세
+
+Git post-commit
+      |
+      v
+request-review.mjs
+      | HTTP (RPC 명세에 따른 git hook 요청)
+      v
+agent-manager.mjs의 HTTP 수신 기능(RPC)를 코덱스 에이전트 서버에 내장
+      | JSON-RPC (stdio)
+      v
+codex app-server 프로세스(RPC : Review Request 수신 API 서버)
+      |
+      v
+Codex 스레드에서 검토
+      |
+      v
+review.md 저장

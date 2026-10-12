@@ -1,0 +1,13 @@
+{
+  "name": "agents-control-towers",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Shared Codex agent manager for local Git projects",
+  "scripts": {
+    "start": "node agent-manager.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

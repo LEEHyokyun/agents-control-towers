@@ -1,0 +1,21 @@
+{
+  "agent": {
+    "initialized": true,
+    "threadId": "01a12f6c-d03f-7f11-8bec-0c00987c2b1d",
+    "lastStartedAt": "2026-10-12T10:36:56.804Z"
+  },
+  "references": {
+    "rough-rule.md": {
+      "path": "C:\\study\\agents-control-towers\\rough-rule\\rough-rule.md",
+      "hash": "b30cc723e320fb9c42a96a5f389e4569073eb7bc296cb93b31b39b988477895a",
+      "synced": true,
+      "lastSyncedAt": "2026-10-12T10:24:04.352Z"
+    },
+    "rough-architecture.md": {
+      "path": "C:\\study\\agents-control-towers\\.rough-architecture\\rough-architecture.md",
+      "hash": "d7b80c042d14e32104085a1cc8a451897eced041aa8a4d4adf6833e0f5a1ccf7",
+      "synced": true,
+      "lastSyncedAt": "2026-10-12T10:24:10.960Z"
+    }
+  }
+}
