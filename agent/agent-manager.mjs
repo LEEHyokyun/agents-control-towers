@@ -456,7 +456,7 @@ async function synchronizeReferences(state, threadId, references) {
         if (previous?.hash === reference.hash) {
             continue;
         }
-
+ㄴ
         log("INFO", `레퍼런스 변경 감지: ${reference.name}`);
 
         const prompt = [
